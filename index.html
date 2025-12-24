@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>🎄 Merry Christmas 🎄</title>
+
+<style>
+body {
+    margin: 0;
+    background: linear-gradient(to bottom, #00111a, #003);
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+/* CHỮ ĐỔI MÀU */
+h1 {
+    margin-top: 20px;
+    font-size: 40px;
+    animation: colorText 3s infinite;
+}
+
+@keyframes colorText {
+    0% {color: red;}
+    25% {color: yellow;}
+    50% {color: lime;}
+    75% {color: cyan;}
+    100% {color: red;}
+}
+
+/* CÂY THÔNG */
+.tree {
+    margin: 60px auto;
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 180px solid green;
+    animation: spin 6s linear infinite, treeColor 4s infinite;
+}
+
+@keyframes spin {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+@keyframes treeColor {
+    0% {border-bottom-color: green;}
+    50% {border-bottom-color: lime;}
+    100% {border-bottom-color: green;}
+}
+
+/* SAO */
+.star {
+    font-size: 40px;
+    color: gold;
+    margin-bottom: -20px;
+}
+
+/* TUYẾT + QUÀ */
+.fall {
+    position: fixed;
+    top: -20px;
+    user-select: none;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+    }
+}
+
+/* ÔNG GIÀ NOEL BAY */
+.santa {
+    position: fixed;
+    top: 80px;
+    font-size: 60px;
+    animation: santaFly 12s linear infinite;
+}
+
+@keyframes santaFly {
+    from {left: -100px;}
+    to {left: 110%;}
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎄 Chúc Bạn Giáng Sinh An Lành 🎄</h1>
+
+<div class="star">⭐</div>
+<div class="tree"></div>
+
+<p style="font-size:22px; animation: colorText 2s infinite;">
+    Chúc bạn và gia đình một mùa Noel ấm áp ❤️<br>
+    Hạnh phúc – Bình an – May mắn 🎁
+</p>
+
+<!-- ÔNG GIÀ NOEL -->
+<div class="santa">🎅🎁</div>
+
+<script>
+// TUYẾT RƠI
+function createSnow() {
+    const snow = document.createElement("div");
+    snow.className = "fall";
+    snow.innerHTML = "❄";
+    snow.style.left = Math.random() * window.innerWidth + "px";
+    snow.style.fontSize = Math.random() * 20 + 10 + "px";
+    snow.style.animationDuration = Math.random() * 5 + 5 + "s";
+    document.body.appendChild(snow);
+    setTimeout(() => snow.remove(), 10000);
+}
+
+// QUÀ RƠI
+function createGift() {
+    const gift = document.createElement("div");
+    gift.className = "fall";
+    gift.innerHTML = "🎁";
+    gift.style.left = Math.random() * window.innerWidth + "px";
+    gift.style.fontSize = Math.random() * 25 + 20 + "px";
+    gift.style.animationDuration = Math.random() * 4 + 6 + "s";
+    document.body.appendChild(gift);
+    setTimeout(() => gift.remove(), 10000);
+}
+
+setInterval(createSnow, 200);
+setInterval(createGift, 800);
+</script>
+
+</body>
+</html>
